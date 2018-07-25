@@ -222,6 +222,7 @@ def max_abs_dict(my_dict):
     res = np.dstack(ls).max(axis=2)
     return res
 
+
 def cohenrance(mat, flag = True):
     if flag:
         D = np.real(np.diag(1.0/np.sqrt(np.diag(mat))))

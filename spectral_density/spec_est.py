@@ -4,13 +4,10 @@ import os
 
 sys.path.append(os.path.join(os.path.dirname(__file__), "utils"))
 
-
 from utils.utilities import *
 from utils.mults_utils import *
 from utils.spec_utils import *
 from spectral_density.spec_eval import SpecEval
-import seaborn as sns
-
 
 
 class SpecEst(object):
@@ -21,7 +18,7 @@ class SpecEst(object):
 
     def get_periodograms(self):
         for freq_index in self.frequency_indices:
-            self.periodograms[freq_index] = SpecUtil.get_periodogram(self.ts, freq_index)
+            self.periodograms[freq_index] = get_periodogram(self.ts, freq_index)
             # print(self.periodograms[-49].shape)
 
     def _smooth(self):
@@ -100,7 +97,7 @@ class SpecEst(object):
     def _get_true_spectral(self):
         for freq_ind in self.frequency_indices:
             self.true_spectral[freq_ind] = \
-                SpecUtil.query_true_spectral(self.model, self.weights, SpecUtil.index_to_freq(freq_ind, self.num_obs),
+                query_true_spectral(self.model, self.weights, index_to_freq(freq_ind, self.num_obs),
                                              self.stdev)
 
     def _fetch_heat_maps(self):
@@ -152,11 +149,11 @@ class SpecEst(object):
         self.stdev = model_info['stdev']
         self.span = model_info['span']
         self.num_obs, self.p = self.ts.shape
-        self.frequency_indices = SpecUtil.generate_dis_Fourier_freq_index(self.num_obs)
+        self.frequency_indices = generate_dis_Fourier_freq_index(self.num_obs)
         # print(self.frequency_indices)
         self.periodograms = {}
         self.get_periodograms()
-        self.freq_ls = SpecUtil.generate_dis_Fourier_freq_index(self.num_obs)
+        self.freq_ls = generate_dis_Fourier_freq_index(self.num_obs)
         self.simu = simu
         '''
         define dictionary for 

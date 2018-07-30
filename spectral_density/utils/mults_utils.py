@@ -1,7 +1,10 @@
 import numpy as np
 
+
 def index_to_freq(ind, n):
     return 2*np.pi*ind/n
+
+
 
 def generate_mvar(transition_matrices, num_obs, stdev, starting_vec=None):
     lag = len(transition_matrices)
@@ -15,6 +18,8 @@ def generate_mvar(transition_matrices, num_obs, stdev, starting_vec=None):
             ts[i, :] += np.dot(transition_matrices[item], ts[i - item - 1, :])
         ts[i, :] += np.random.normal(0, stdev, (p,))
     return ts
+
+
 
 def ma_help(weights, noise_arr, stdev):
     '''

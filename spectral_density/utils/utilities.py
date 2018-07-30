@@ -17,23 +17,23 @@ def standadize_matrix(mat, standard_const):
     return mat/np.linalg.norm(mat, 'fro')*standard_const
 
 
-def HS(mat1, mat2):
+def HS_norm(mat1, mat2):
     p, _ = mat1.shape
     res = np.trace(np.dot(mat1, np.transpose(np.conj(mat2))))/p
-    return np.real(res)
+    return np.sqrt(np.real(res))
 
-
-def HS_norm(mat):
-    return np.sqrt(HS(mat, mat))
 
 
 def gene_scheme(model, coefs, span):
     return {'model': model, 'coefs': coefs, 'span':span}
 
 
+
 def diff(mat1, mat2):
     p, _ = mat1.shape
     return HS_norm(mat1-mat2)
+
+
 
 def relative_err(mat, target):
     return HS_norm(mat-target)/HS_norm(target)
@@ -43,16 +43,34 @@ def relative_err(mat, target):
 smoothing/split smoothing session
 '''
 def decrement_one(cur_ind, ls_keys):
+    """Return the result decrement_one.
+        >>> decrement_one(2, [-3,-2,-1,0,1,2,3])
+        1
+        >>> decrement_one(-3, [-3,-2,-1,0,1,2,3])
+        3
+        """
     if cur_ind == np.min(ls_keys):
         return np.max(ls_keys)
     return (cur_ind-1)
 
 def increment_one(cur_ind, ls_keys):
+    """Return the result of increment_one.
+            >>> increment_one(2, [-3,-2,-1,0,1,2,3])
+            3
+            >>> increment_one(3, [-3,-2,-1,0,1,2,3])
+            -3
+            """
     if cur_ind == np.max(ls_keys):
         return np.min(ls_keys)
     return cur_ind+1
 
 def generate_neighobors(cur_index, ls_keys, span):
+    """Return neighbor list of neighbors.
+                >>> ls = list(generate_neighobors(2, [-3,-2,-1,0,1,2,3], 2))
+                >>> ls.sort()
+                >>> ''.join(str(x) for x in ls)
+                '-30123'
+                """
     ls = []
     ls.append(cur_index)
     left_ind = cur_index
@@ -100,10 +118,13 @@ operators session: thresholding
 def hard_threshold_operator(spd, threshold_value, diag_flag = True):
     res = np.copy(spd)
     res[abs(res) < threshold_value] = 0 + 0j
+    '''
     if diag_flag:
         ind= np.diag_indices(res.shape[0])
         res[ind] = spd[ind]
+    '''
     return res
+
 
 def soft_threshold_operator(spd, threshold_value, diag_flag = True):
     res = np.copy(spd)
@@ -111,10 +132,13 @@ def soft_threshold_operator(spd, threshold_value, diag_flag = True):
     right_part = abs(res)-threshold_value
     right_part[right_part<0] = 0
     res = res_sd*right_part
+    '''
     if diag_flag:
         for i in range(spd.shape[0]):
             res[i,i] = spd[i,i]
+    '''
     return res
+
 
 def adaptive_lasso_operator(spd, threshold_value, eta=2, diag_flag=True):
     res = np.copy(spd)
@@ -126,6 +150,7 @@ def adaptive_lasso_operator(spd, threshold_value, eta=2, diag_flag=True):
         for i in range(spd.shape[0]):
             res[i,i] = spd[i,i]
     return res
+
 
 
 def optimal_general_thresholding_estimator(dict_matrices, neighbors, smooth_estimator, threshold_operator, num_grid=50):
@@ -244,5 +269,7 @@ def average_abs_coherance(my_dict):
     return sum(ls)/len(ls)
 
 
+
 if __name__ == "__main__":
-    pass
+    import doctest
+    doctest.testmod()

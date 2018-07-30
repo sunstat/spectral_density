@@ -5,29 +5,29 @@ from utilities import HS_norm
 class SpecEval(object):
 
     @staticmethod
-    def query_error(est_spec, true_spec, freq_index, relative_err_flag = True):
+    def query_error(est_spec, true_spec, freq_index):
         '''
         :param est_spec: estimator dictionary
         :param true_spec: true dictionary
         :param relative_err: return relative or not
         :return: err
         '''
-        if relative_err_flag:
-            return relative_err(est_spec[freq_index], true_spec[freq_index])
         return HS_norm(est_spec[freq_index] - true_spec[freq_index])**2
 
     @staticmethod
-    def average_err(est_spec, true_spec, sampling_size = 100, relative_err_flag = False):
-        if sampling_size != -1:
-            test_index = np.random.choice(list(est_spec.keys()), sampling_size, replace = False)
-        else:
-            test_index = list(est_spec.keys())
-        errs_dict = {}
-        for freq_ind in test_index:
-            err = SpecEval.query_error(est_spec, true_spec, freq_ind, relative_err_flag)
+    def query_errors(est_spec, true_spec):
+        '''
+        :param est_spec: dict from freq_ind to estimated spec
+        :param true_spec: dict from freq_ind to true spec
+        :param relative_err_flag:
+        :return:
+        '''
+        mse_dict = {}
+        for freq_ind in true_spec.keys():
+            mse = SpecEval.query_error(est_spec, true_spec, freq_ind)
             #print(err)
-            errs_dict[freq_ind] = err
-        return errs_dict
+            mse_dict[freq_ind] = mse
+        return mse_dict
 
 
     @staticmethod
@@ -82,7 +82,6 @@ class SpecEval(object):
             else:
                 precision = A1/A3
                 recall = A1/A2
-    
 
         return precision, recall, F1
 

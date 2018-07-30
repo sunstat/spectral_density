@@ -16,10 +16,12 @@ class SpecEst(object):
         for freq_ind in self.frequency_indices:
             self.neighbors[freq_ind] = generate_neighobors(freq_ind, self.frequency_indices, self.span)
 
+
     def get_periodograms(self):
         for freq_index in self.frequency_indices:
             self.periodograms[freq_index] = get_periodogram(self.ts, freq_index)
             # print(self.periodograms[-49].shape)
+
 
     def _smooth(self):
         '''
@@ -27,6 +29,7 @@ class SpecEst(object):
         :return: None, but update the value of self.smooth_periodograms
         '''
         self.smoothing_estimator = smooth_matrices(self.periodograms, self.frequency_indices, self.span)
+
 
     def _get_three_metrics(self):
         self.precision['th'], self.recall['th'], self.F1['th'] \
@@ -72,23 +75,14 @@ class SpecEst(object):
     def _get_thresholding_estimator(self):
         for freq_index in self.frequency_indices:
             self.thresholding_estimator[freq_index] = \
-                optimal_general_thresholding_estimator(self.periodograms,
-                                                       self.neighbors[freq_index], self.smoothing_estimator[freq_index],
-                                                       hard_threshold_operator, num_grid=40)
-            self.soft_threshold_estimator[freq_index] = optimal_general_thresholding_estimator(self.periodograms,
-                                                                                               self.neighbors[
-                                                                                                   freq_index],
-                                                                                               self.smoothing_estimator[
-                                                                                                   freq_index],
-                                                                                               soft_threshold_operator,
-                                                                                               num_grid=40)
-            self.adaptive_lasso_estimator[freq_index] = optimal_general_thresholding_estimator(self.periodograms,
-                                                                                               self.neighbors[
-                                                                                                   freq_index],
-                                                                                               self.smoothing_estimator[
-                                                                                                   freq_index],
-                                                                                               adaptive_lasso_operator,
-                                                                                               num_grid=40)
+                optimal_general_thresholding_estimator(self.periodograms, self.neighbors[freq_index],
+                self.smoothing_estimator[freq_index], hard_threshold_operator, num_grid=40)
+            self.soft_threshold_estimator[freq_index] = \
+                optimal_general_thresholding_estimator(self.periodograms, self.neighbors[freq_index],
+                self.smoothing_estimator[freq_index], soft_threshold_operator, num_grid=40)
+            self.adaptive_lasso_estimator[freq_index] = \
+                optimal_general_thresholding_estimator(self.periodograms, self.neighbors[freq_index],
+                self.smoothing_estimator[freq_index], adaptive_lasso_operator, num_grid=40)
 
     '''
     true spectral session
@@ -229,18 +223,18 @@ class SpecEst(object):
     def evaluate(self, mode, sampling_size=-1):
         err_dict = None
         if mode == 'sm':
-            err_dict = SpecEval.average_err(self.smoothing_estimator, self.true_spectral, sampling_size=sampling_size)
+            err_dict = SpecEval.query_errors(self.smoothing_estimator, self.true_spectral)
+            print("smoothing error is {}".format(np.mean(list(err_dict.values()))))
         if mode == 'sh':
-            err_dict = SpecEval.average_err(self.shrinkage_estimator, self.true_spectral, sampling_size=sampling_size)
+            err_dict = SpecEval.query_errors(self.shrinkage_estimator, self.true_spectral)
         if mode == 'th':
-            err_dict = SpecEval.average_err(self.thresholding_estimator, self.true_spectral,
-                                            sampling_size=sampling_size)
+            err_dict = SpecEval.query_errors(self.thresholding_estimator, self.true_spectral)
+            print("hard threshold error is {}".format(np.mean(list(err_dict.values()))))
         if mode == 'al':
-            err_dict = SpecEval.average_err(self.adaptive_lasso_estimator, self.true_spectral,
-                                            sampling_size=sampling_size)
+            err_dict = SpecEval.query_errors(self.adaptive_lasso_estimator, self.true_spectral)
         if mode == 'so':
-            err_dict = SpecEval.average_err(self.soft_threshold_estimator, self.true_spectral,
-                                            sampling_size=sampling_size)
+            err_dict = SpecEval.query_errors(self.soft_threshold_estimator, self.true_spectral)
+            print("soft error is {}".format(np.mean(list(err_dict.values()))))
         return err_dict
 
 

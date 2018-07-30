@@ -2,24 +2,30 @@ from matplotlib import pyplot
 import numpy as np
 from utilities import *
 
-
-
 def generate_dis_Fourier_freq_index(n):
     low_bound = int(np.ceil(-(n - 1) / 2.0))
     upper_bound = n / 2
     return [int(item) for item in np.arange(int(low_bound), int(upper_bound) + 1, 1)]
 
+
+
+
 def index_to_freq(ind, n):
     return 2*np.pi*ind/n
+
+
+
 
 def generate_dis_Fourier_coefs(freq, n):
     #print("frequency is {}".format(freq))
     return np.exp(1j*freq * np.arange(0, n)) / np.sqrt(n)
 
+
+
 def get_periodogram(ts, freq_index):
     num_obs, p = ts.shape
-    freq = SpecUtil.index_to_freq(freq_index, num_obs)
-    df = np.dot(np.transpose(ts), SpecUtil.generate_dis_Fourier_coefs(freq, num_obs))
+    freq = index_to_freq(freq_index, num_obs)
+    df = np.dot(np.transpose(ts), generate_dis_Fourier_coefs(freq, num_obs))
     periodogram = 1/(2*np.pi)*np.outer(df, np.conj(df))
     return periodogram
 

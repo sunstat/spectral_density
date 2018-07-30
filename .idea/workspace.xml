@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b202f9fd-cae5-4229-bbac-412410418aad" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spectral_density/debug_doc_test.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spectral_density/spec_est.py" afterPath="$PROJECT_DIR$/spectral_density/spec_est.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spectral_density/spec_eval.py" afterPath="$PROJECT_DIR$/spectral_density/spec_eval.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spectral_density/utils/debug_utils.py" afterPath="$PROJECT_DIR$/spectral_density/utils/debug_utils.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spectral_density/utils/mults_utils.py" afterPath="$PROJECT_DIR$/spectral_density/utils/mults_utils.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spectral_density/utils/spec_utils.py" afterPath="$PROJECT_DIR$/spectral_density/utils/spec_utils.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spectral_density/utils/utilities.py" afterPath="$PROJECT_DIR$/spectral_density/utils/utilities.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />

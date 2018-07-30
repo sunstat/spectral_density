@@ -39,4 +39,4 @@ Thumbs.db
 
 #self debug file
 ###############
-debug*
+debug*.py

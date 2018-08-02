@@ -24,7 +24,8 @@ def generate_mvar(transition_matrices, num_obs, stdev, starting_vec=None):
 def ma_help(weights, noise_arr, stdev):
     '''
     :param weights: weights for the noise
-    :param noise_arr: noise_array
+    :param noise_arr: noise_array, during each iteration,
+    we delete the first one and append a new generated error vector
     :param stdev:
     :return:
     '''
@@ -36,6 +37,7 @@ def ma_help(weights, noise_arr, stdev):
     noise_arr.pop(0)
     noise_arr.append(np.random.normal(0, stdev, (p,)))
     return value
+
 
 
 def generate_ma(weight_matrices, num_obs, stdev):
@@ -52,28 +54,23 @@ def calculate_auto_variance(ts, lag):
     n, p = ts.shape
     gamma_lag = np.zeros((p,p))
     if lag >= 0:
-        for t in range(0, n-lag):
-            gamma_lag += np.outer(ts[int(t),:], ts[int(t+lag),:])
+        for t in range(lag, n):
+            gamma_lag += np.outer(ts[int(t),:], ts[int(t-lag),:])
     else:
         for t in range(-lag, n):
             gamma_lag += np.outer(ts[int(t),:], ts[int(t+lag),:])
     return gamma_lag/n
 
-def get_periodogram_naive(ts, freq_index):
-    n, p = ts.shape
-    periodogram = np.repeat(0.0+0.0j, p*p).reshape(p, p)
-    for lag in range(-(n-1), (n-1), 1):
-        periodogram += MulTS.calculate_auto_variance(ts, lag)*np.exp(-1j*lag*MulTS.index_to_freq(freq_index, n))
-    return 1/(2*np.pi)*periodogram
+
 
 
 def one_var_autocovariance(weight, lag, stdev, N=30):
     if lag<0:
-        return np.transpose(MulTS.one_var_autocovariance(weight, -lag, stdev))
+        return np.transpose(one_var_autocovariance(weight, -lag, stdev))
     p, _ = weight.shape
     gamma_lag = np.zeros((p,p))
-    left_B = np.diag(np.repeat(1., p))
-    right_B = np.linalg.matrix_power(weight, lag)
+    right_B = np.diag(np.repeat(1., p))
+    left_B = np.linalg.matrix_power(weight, lag)
     for _ in range(lag, N):
         gamma_lag += np.dot(left_B, right_B.T)
         left_B = np.dot(left_B, weight)
@@ -81,17 +78,21 @@ def one_var_autocovariance(weight, lag, stdev, N=30):
     return gamma_lag*(stdev**2)
 
 
+
+
 def ma_autocovariance(weights, lag, stdev):
     if lag<0:
-        return np.transpose(MulTS.ma_autocovariance(weights, -lag, stdev))
+        return np.transpose(ma_autocovariance(weights, -lag, stdev))
     length = len(weights)
     p, _ = weights[0].shape
     autocovariance = np.zeros((p,p))
     if lag>=length:
         return np.zeros((p,p))
-    for ell in range(0, length-lag):
-        autocovariance += np.dot(weights[ell], np.transpose(weights[ell+lag]))
+    for ell in range(lag, length):
+        autocovariance += np.dot(weights[ell], np.transpose(weights[ell-lag]))
     return autocovariance*(stdev**2)
+
+
 
 def iid_autocovariance(lag, p, stdev):
     if lag == 0:

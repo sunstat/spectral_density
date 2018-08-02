@@ -17,10 +17,15 @@ def standadize_matrix(mat, standard_const):
     return mat/np.linalg.norm(mat, 'fro')*standard_const
 
 
-def HS_norm(mat1, mat2):
+def HS_norm(mat1, mat2=None):
     p, _ = mat1.shape
-    res = np.trace(np.dot(mat1, np.transpose(np.conj(mat2))))/p
+    if mat2 is not None:
+        res = np.trace(np.dot(mat1, np.transpose(np.conj(mat2))))/p
+    else:
+        res = np.trace(np.dot(mat1, np.transpose(np.conj(mat1))))/p
     return np.sqrt(np.real(res))
+
+
 
 
 
@@ -97,7 +102,7 @@ def sample_split(neighbors):
             values.append(-value)
             neigh.remove(-value)
         neigh.remove(value)
-        if flag :
+        if flag:
             left_ls.extend(values)
         else:
             right_ls.extend(values)
@@ -234,6 +239,7 @@ def average_abs_dict(my_dict):
     abs_pass(my_dict)
     ls = list(my_dict.values())
     return 1.0*sum(ls)/len(my_dict)
+
 
 def l2_average_abs_dict(my_dict):
     abs_pass(my_dict)

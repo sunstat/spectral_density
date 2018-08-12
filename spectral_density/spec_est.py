@@ -29,15 +29,16 @@ class SpecEst(object):
         :return: None, but update the value of self.smooth_periodograms
         '''
         self.smoothing_estimator = smooth_matrices(self.periodograms, self.frequency_indices, self.span)
+        #print(self.smoothing_estimator[0])
 
 
     def _get_three_metrics(self):
         self.precision['th'], self.recall['th'], self.F1['th'] \
-            = SpecEval.get_three_metrics(self.true_spectral, self.thresholding_estimator)
+            = SpecEval.get_three_metrics(self.true_spectral, self.thresholding_estimator, individual_level = self.individual_level)
         self.precision['so'], self.recall['so'], self.F1['so'] \
-            = SpecEval.get_three_metrics(self.true_spectral, self.soft_threshold_estimator)
+            = SpecEval.get_three_metrics(self.true_spectral, self.soft_threshold_estimator, individual_level = self.individual_level)
         self.precision['al'], self.recall['al'], self.F1['al'] \
-            = SpecEval.get_three_metrics(self.true_spectral, self.adaptive_lasso_estimator)
+            = SpecEval.get_three_metrics(self.true_spectral, self.adaptive_lasso_estimator, individual_level = self.individual_level)
 
     '''
     shrinkage session
@@ -132,7 +133,7 @@ class SpecEst(object):
         if self.simu:
             self.heat_map['true']['ave'] = cohenrance(average_abs_dict(self.true_spectral))
 
-    def __init__(self, ts, model_info, simu=True):
+    def __init__(self, ts, model_info, individual_level=True, simu=True):
         '''
         :param ts: sample time series
         :param gene_scheme: true generating scheme
@@ -161,26 +162,41 @@ class SpecEst(object):
         self.soft_threshold_estimator = {}
         self.adaptive_lasso_estimator = {}
         self._smooth()
+        #print("after smooth")
+        #print(self.query_smoothing_estimator(0))
+
         self._get_shrinkage_estimators()
+        #print("after shrinkage")
+        #print(self.query_smoothing_estimator(0))
         if self.simu:
             self._get_true_spectral()
         self._get_neighbors()
         self._get_thresholding_estimator()
+        #print("after threshold")
+        #print(self.query_smoothing_estimator(0))
         # for heat maps
         self.heat_map = {}
         self._fetch_heat_maps()
         self._get_true_spectral()
+        #print("after true")
+        #print(self.query_smoothing_estimator(0))
+
         # precision, recall, F1
         self.precision = {}
         self.recall = {}
         self.F1 = {}
+        self.individual_level = individual_level
         self._get_three_metrics()
+        #print(self.query_smoothing_estimator(0))
+
+
 
     '''
     query section
     '''
 
     def query_smoothing_estimator(self, freq_index):
+
         return self.smoothing_estimator[freq_index]
 
     def query_shrinkage_estimator(self, freq_index):

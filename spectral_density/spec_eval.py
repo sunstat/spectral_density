@@ -14,6 +14,7 @@ class SpecEval(object):
         '''
         return HS_norm(est_spec[freq_index] - true_spec[freq_index])**2
 
+
     @staticmethod
     def query_errors(est_spec, true_spec):
         '''

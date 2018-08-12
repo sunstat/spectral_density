@@ -20,7 +20,6 @@ def generate_dis_Fourier_coefs(freq, n):
 
 
 
-
 def get_periodogram(ts, freq_index):
     num_obs, p = ts.shape
     freq = index_to_freq(freq_index, num_obs)
@@ -66,4 +65,21 @@ if __name__ == "__main__":
     print(w)
     print(np.dot(w, np.conj(w)))
 
+    print(generate_dis_Fourier_coefs(0, 100))
 
+    stdev = 1
+    num_obs = 800
+    span = 20
+    B1 = np.array([[0.5, 0.0], [0.0, 0.2]])
+    weights = [np.diag(np.repeat(1., 2)), B1]
+    ts = generate_ma(weights, num_obs, stdev)
+    print("begin of printing peridogram")
+    peridogram = get_periodogram(ts, 40)
+    print("========")
+    print(peridogram)
+    peridogram = get_periodogram(ts, 0)
+    print(peridogram)
+    df = np.dot(ts.T, np.repeat(1, num_obs))
+    print(1 / (2 * np.pi) * np.outer(df, df)/num_obs)
+    print("end of printing peridogram")
+    print(query_true_spectral('ma',weights, 0, 1))

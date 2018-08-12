@@ -27,8 +27,6 @@ def HS_norm(mat1, mat2=None):
 
 
 
-
-
 def gene_scheme(model, coefs, span):
     return {'model': model, 'coefs': coefs, 'span':span}
 
@@ -69,6 +67,7 @@ def increment_one(cur_ind, ls_keys):
         return np.min(ls_keys)
     return cur_ind+1
 
+
 def generate_neighobors(cur_index, ls_keys, span):
     """Return neighbor list of neighbors.
                 >>> ls = list(generate_neighobors(2, [-3,-2,-1,0,1,2,3], 2))
@@ -86,6 +85,7 @@ def generate_neighobors(cur_index, ls_keys, span):
         ls.append(left_ind)
         ls.append(right_ind)
     return tuple(ls)
+
 
 
 def sample_split(neighbors):
@@ -123,11 +123,11 @@ operators session: thresholding
 def hard_threshold_operator(spd, threshold_value, diag_flag = True):
     res = np.copy(spd)
     res[abs(res) < threshold_value] = 0 + 0j
-    '''
+
     if diag_flag:
         ind= np.diag_indices(res.shape[0])
         res[ind] = spd[ind]
-    '''
+
     return res
 
 
@@ -137,11 +137,11 @@ def soft_threshold_operator(spd, threshold_value, diag_flag = True):
     right_part = abs(res)-threshold_value
     right_part[right_part<0] = 0
     res = res_sd*right_part
-    '''
+
     if diag_flag:
         for i in range(spd.shape[0]):
             res[i,i] = spd[i,i]
-    '''
+
     return res
 
 
@@ -201,6 +201,7 @@ def smooth_matrices(dict_matrices, ls_keys, span):
     smoothing_dict_matrices = {}
     cur_index = 0
     smoothing_dict_matrices[cur_index] = smooth_matrices_single_index(cur_index, dict_matrices, ls_keys, span)
+    #print(smoothing_dict_matrices[cur_index])
     left_index = -span
     right_index = span
     count = 1
@@ -217,6 +218,7 @@ def smooth_matrices(dict_matrices, ls_keys, span):
         count += 1
         if not QUIET and count%50 == 0:
             print("finishing smoothing {}".format(count))
+    #print(smoothing_dict_matrices[0])
     return smoothing_dict_matrices
 
 
@@ -236,9 +238,10 @@ def abs_pass(my_dict):
 
 
 def average_abs_dict(my_dict):
-    abs_pass(my_dict)
-    ls = list(my_dict.values())
-    return 1.0*sum(ls)/len(my_dict)
+    my_dict_cpy = dict(my_dict)
+    abs_pass(my_dict_cpy )
+    ls = list(my_dict_cpy .values())
+    return 1.0*sum(ls)/len(my_dict_cpy)
 
 
 def l2_average_abs_dict(my_dict):
@@ -270,8 +273,9 @@ def coherance_pass(my_dict):
 
 
 def average_abs_coherance(my_dict):
-    coherance_pass(my_dict)
-    ls = list(my_dict.values())
+    my_dict_cpy = dict(my_dict)
+    coherance_pass(my_dict_cpy)
+    ls = list(my_dict_cpy.values())
     return sum(ls)/len(ls)
 
 

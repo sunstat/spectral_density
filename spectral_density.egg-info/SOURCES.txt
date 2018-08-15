@@ -1,4 +1,5 @@
 spectral_density/__init__.py
+spectral_density/debug_util.py
 spectral_density/spec_est.py
 spectral_density/spec_eval.py
 spectral_density.egg-info/PKG-INFO

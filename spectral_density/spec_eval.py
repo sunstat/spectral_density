@@ -32,21 +32,29 @@ class SpecEval(object):
 
 
     @staticmethod
-    def get_three_metrics(true_spectral, spectral_estimator, individual_level=True, tolerance = 1e-20):
+    def get_three_metrics(true_spectral, spectral_estimator, individual_level=True, tolerance = 1e-40):
+
+        precisions = []
+        recalls = []
+        F1s = []
+        flag = 0
 
         if individual_level:
-            precisions = []
-            recalls = []
-            F1s = []
+
             for freq_ind in true_spectral.keys():
                 true_signal = abs(true_spectral[freq_ind])
                 estimator = abs(spectral_estimator[freq_ind])
-                ind = np.diag_indices(true_spectral[freq_ind].shape[0])
-                true_signal[ind] = 0
-                estimator[ind] = 0
                 A1 = np.sum(np.logical_and(true_signal>tolerance, estimator>tolerance))
                 A2 = np.sum(true_signal>tolerance)
                 A3 = np.sum(estimator>tolerance)
+
+                if A3 == 0:
+                    flag+=1
+                    print(freq_ind)
+                    print(np.max(true_signal))
+                    print(np.max(estimator))
+                    print('=====')
+
                 if A3 == 0:
                     precision = 1
                 else:
@@ -58,19 +66,17 @@ class SpecEval(object):
             precision = np.mean(precisions)
             recall = np.mean(recalls)
             F1 = np.mean(F1s)
+            print(flag)
         else:
-            true_signals = np.empty(true_spectral.shape)
-            estimator_signals = np.empty(true_spectral.shape)
-            correct_findings = np.empty(true_spectral.shape)
+            true_signals = np.empty(true_spectral[0].shape)
+            estimator_signals = np.empty(true_spectral[0].shape)
+            correct_findings = np.empty(true_spectral[0].shape)
             true_signals.fill(False)
             estimator_signals.fill(False)
             correct_findings.fill(False)
             for freq_ind in true_spectral.keys():
                 true_signal = abs(true_spectral[freq_ind])
                 estimator_signal = abs(spectral_estimator[freq_ind])
-                ind = np.diag_indices(true_spectral[freq_ind].shape[0])
-                true_signal[ind] = 0
-                estimator_signal[ind] = 0
                 true_signals = np.logical_or(true_signals, true_signal>tolerance)
                 estimator_signals = np.logical_or(estimator_signals, estimator_signal>tolerance)
 
@@ -78,11 +84,20 @@ class SpecEval(object):
             A2 = np.sum(true_signals > tolerance)
             A3 = np.sum(estimator_signals > tolerance)
 
+
             if A3 == 0:
                 precision = 1
             else:
                 precision = A1/A3
                 recall = A1/A2
+
+            recall = A1 / A2
+            precisions.append(precision)
+            recalls.append(recall)
+            F1s.append(2 * precision * recall / (precision + recall))
+            precision = np.mean(precisions)
+            recall = np.mean(recalls)
+            F1 = np.mean(F1s)
 
         return precision, recall, F1
 

@@ -50,10 +50,10 @@ class SpecEval(object):
 
                 if A3 == 0:
                     flag+=1
-                    print(freq_ind)
-                    print(np.max(true_signal))
-                    print(np.max(estimator))
-                    print('=====')
+                    #print(freq_ind)
+                    #print(np.max(true_signal))
+                    #print(np.max(estimator))
+                    #print('=====')
 
                 if A3 == 0:
                     precision = 1
@@ -91,7 +91,7 @@ class SpecEval(object):
                 precision = A1/A3
                 recall = A1/A2
 
-            recall = A1 / A2
+            recall = A1/A2
             precisions.append(precision)
             recalls.append(recall)
             F1s.append(2 * precision * recall / (precision + recall))

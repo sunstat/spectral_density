@@ -240,17 +240,17 @@ class SpecEst(object):
         err_dict = None
         if mode == 'sm':
             err_dict = SpecEval.query_errors(self.smoothing_estimator, self.true_spectral)
-            print("smoothing error is {}".format(np.mean(list(err_dict.values()))))
+            #print("smoothing error is {}".format(np.mean(list(err_dict.values()))))
         if mode == 'sh':
             err_dict = SpecEval.query_errors(self.shrinkage_estimator, self.true_spectral)
         if mode == 'th':
             err_dict = SpecEval.query_errors(self.thresholding_estimator, self.true_spectral)
-            print("hard threshold error is {}".format(np.mean(list(err_dict.values()))))
+            #print("hard threshold error is {}".format(np.mean(list(err_dict.values()))))
         if mode == 'al':
             err_dict = SpecEval.query_errors(self.adaptive_lasso_estimator, self.true_spectral)
         if mode == 'so':
             err_dict = SpecEval.query_errors(self.soft_threshold_estimator, self.true_spectral)
-            print("soft error is {}".format(np.mean(list(err_dict.values()))))
+            #print("soft error is {}".format(np.mean(list(err_dict.values()))))
         return err_dict
 
 

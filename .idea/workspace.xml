@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b202f9fd-cae5-4229-bbac-412410418aad" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spectral_density.egg-info/SOURCES.txt" afterPath="$PROJECT_DIR$/spectral_density.egg-info/SOURCES.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spectral_density/spec_est.py" afterPath="$PROJECT_DIR$/spectral_density/spec_est.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spectral_density/spec_eval.py" afterPath="$PROJECT_DIR$/spectral_density/spec_eval.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -86,8 +86,8 @@
       <file leaf-file-name="spec_est.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/spectral_density/spec_est.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="36" column="22" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+            <state relative-caret-position="1393">
+              <caret line="252" column="18" lean-forward="false" selection-start-line="252" selection-start-column="13" selection-end-line="252" selection-end-column="18" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -98,8 +98,8 @@
       <file leaf-file-name="spec_eval.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/spectral_density/spec_eval.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="45" column="61" lean-forward="false" selection-start-line="45" selection-start-column="61" selection-end-line="45" selection-end-column="61" />
+            <state relative-caret-position="316">
+              <caret line="55" column="21" lean-forward="false" selection-start-line="55" selection-start-column="21" selection-end-line="55" selection-end-column="21" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -127,11 +127,11 @@
       <find>smoothing_estimator</find>
       <find>heat</find>
       <find>get_three_metrics</find>
-      <find>print</find>
       <find>average_errs_dict</find>
       <find>extract_tuple</find>
       <find>average_dict</find>
       <find>keys</find>
+      <find>print</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -155,8 +155,8 @@
         <option value="$PROJECT_DIR$/spectral_density/utils/debug_util.py" />
         <option value="$PROJECT_DIR$/spectral_density/utils/spec_utils.py" />
         <option value="$PROJECT_DIR$/spectral_density/debug_util.py" />
-        <option value="$PROJECT_DIR$/spectral_density/spec_est.py" />
         <option value="$PROJECT_DIR$/spectral_density/utils/utilities.py" />
+        <option value="$PROJECT_DIR$/spectral_density/spec_est.py" />
         <option value="$PROJECT_DIR$/spectral_density/spec_eval.py" />
       </list>
     </option>
@@ -355,7 +355,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="943" extended-state="1" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -821,8 +820,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/spectral_density/spec_est.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="36" column="22" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+        <state relative-caret-position="1393">
+          <caret line="252" column="18" lean-forward="false" selection-start-line="252" selection-start-column="13" selection-end-line="252" selection-end-column="18" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
@@ -831,8 +830,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/spectral_density/spec_eval.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="45" column="61" lean-forward="false" selection-start-line="45" selection-start-column="61" selection-end-line="45" selection-end-column="61" />
+        <state relative-caret-position="316">
+          <caret line="55" column="21" lean-forward="false" selection-start-line="55" selection-start-column="21" selection-end-line="55" selection-end-column="21" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>

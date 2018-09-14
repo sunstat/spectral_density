@@ -29,6 +29,9 @@ class SpecEst(object):
         :return: None, but update the value of self.smooth_periodograms
         '''
         self.smoothing_estimator = smooth_matrices(self.periodograms, self.frequency_indices, self.span)
+        if self.span_list is not None:
+            self.smoothing_estimator = smooth_diagonal_correct(self.periodograms, list(self.smoothing_estimator.keys()), self.span_list,
+                                                           self.smoothing_estimator)
         #print(self.smoothing_estimator[0])
 
 
@@ -102,7 +105,7 @@ class SpecEst(object):
         self.heat_map['al'] = {}
         self.heat_map['true'] = {}
         freq_ind_set = [0, self.num_obs // 4, -(self.num_obs // 4)]
-        '''
+
         for freq_ind in freq_ind_set:
             self.heat_map['th'][freq_ind] = cohenrance(abs(self.query_thresholding_estimator(freq_ind)))
             self.heat_map['sh'][freq_ind] = cohenrance(abs(self.query_shrinkage_estimator(freq_ind)))
@@ -110,7 +113,8 @@ class SpecEst(object):
             self.heat_map['al'][freq_ind] = cohenrance(abs(self.query_adaptive_lasso_estimator(freq_ind)))
             if self.simu:
                 self.heat_map['true'][freq_ind] = abs(self.query_true_spectral(freq_ind))
-        '''
+
+
 
         self.heat_map['sm']['ave'] = average_abs_coherance(self.smoothing_estimator)
         self.heat_map['th']['ave'] = average_abs_coherance(self.thresholding_estimator)
@@ -143,6 +147,7 @@ class SpecEst(object):
         self.weights = model_info['weights']
         self.stdev = model_info['stdev']
         self.span = model_info['span']
+        self.span_list = model_info.get('span_list')
         self.num_obs, self.p = self.ts.shape
         self.frequency_indices = generate_dis_Fourier_freq_index(self.num_obs)
         # print(self.frequency_indices)
@@ -177,7 +182,6 @@ class SpecEst(object):
         # for heat maps
         self.heat_map = {}
         self._fetch_heat_maps()
-        self._get_true_spectral()
         #print("after true")
         #print(self.query_smoothing_estimator(0))
 
@@ -211,8 +215,6 @@ class SpecEst(object):
     def query_true_spectral(self, freq_index):
         return self.true_spectral[freq_index]
 
-    def query_peridogram(self, freq_index):
-        return self.periodograms[freq_index]
 
     def query_neighbors(self, freq_index):
         return self.neighbors[freq_index]
@@ -259,12 +261,14 @@ if __name__ == "__main__":
     num_obs = 800
     span = 20
     B1 = np.array([[0.0, 0.8], [0.7, .0]])
+    span_list = [5,6]
     weights = [np.diag(np.repeat(1., 2)), B1]
     model_info = {}
     model_info['model'] = 'ma'
     model_info['weights'] = weights
     model_info['stdev'] = stdev
     model_info['span'] = span
+    model_info['span_list'] = span_list
     errs = []
     ts = generate_ma(weights, num_obs=num_obs, stdev=stdev)
     print(calculate_auto_variance(ts, 0))
@@ -275,6 +279,8 @@ if __name__ == "__main__":
     model_info['weights'] = weights
     model_info['span'] = 5
     model_info['stdev'] = stdev
+    model_info['span_list'] = span_list
+
     ts = generate_ma(weights, num_obs=num_obs, stdev=stdev)
     spec_est = SpecEst(ts, model_info)
     print(spec_est.query_neighbors(0))

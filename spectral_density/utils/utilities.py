@@ -222,6 +222,71 @@ def smooth_matrices(dict_matrices, ls_keys, span):
     return smoothing_dict_matrices
 
 
+
+def smooth_scalar_single_index(cur_ind, dict_scalars, ls_keys, span):
+    res = dict_scalars[cur_ind]
+    count = 0
+    left_index = cur_ind
+    right_index = cur_ind
+    while count<span:
+        #print("count is {}".format(count))
+        #print(ls_keys)
+        left_index = decrement_one(left_index, ls_keys)
+        right_index = increment_one(right_index, ls_keys)
+        res += dict_scalars[left_index]
+        res += dict_scalars[right_index]
+        count+=1
+    return res/(2*span+1)
+
+
+def smooth_scalars(dict_matrices, ls_keys, span):
+    smoothing_dict_scalars = {}
+    cur_index = 0
+    smoothing_dict_scalars[cur_index] = smooth_matrices_single_index(cur_index, dict_matrices, ls_keys, span)
+    #print(smoothing_dict_matrices[cur_index])
+    left_index = -span
+    right_index = span
+    count = 1
+    length = 2*span+1
+    value = smoothing_dict_scalars[cur_index] * length
+    while count<len(ls_keys):
+        value -= dict_matrices[left_index]
+        left_index = increment_one(left_index, ls_keys)
+        right_index = increment_one(right_index, ls_keys)
+        value += dict_matrices[right_index]
+        cur_index = increment_one(cur_index, ls_keys)
+        #print("current index is {}, left index is {} and right index is {}".format(cur_index, left_index, right_index))
+        smoothing_dict_scalars[cur_index] = value/length
+        count += 1
+        if not QUIET and count%50 == 0:
+            print("finishing smoothing {}".format(count))
+    #print(smoothing_dict_matrices[0])
+    return smoothing_dict_scalars
+
+
+
+def extract_diagonal_dict(dict_matrices, diag_ind):
+    dict_scalars = {}
+    for key, value in dict_matrices.items():
+        dict_scalars[key] = value[diag_ind,diag_ind]
+    return dict_scalars
+
+
+def assign_diagonal(smooth_dict_matrices, dict_scalars, ind):
+    for key, value in smooth_dict_matrices.items():
+        value[ind, ind]  = dict_scalars[key]
+
+
+def smooth_diagonal_correct(dict_matrics, ls_keys, span_list, smooth_dict_matrices):
+    p, _ = dict_matrics[ls_keys[0]].shape
+    for ind in range(p):
+        dict_scalar = extract_diagonal_dict(dict_matrics, ind)
+        smooth_uni_estimator = smooth_scalars(dict_scalar, ls_keys, span_list[ind])
+        assign_diagonal(smooth_dict_matrices, smooth_uni_estimator, ind)
+    return smooth_dict_matrices
+
+
+
 '''
 average of errs_dict
 '''
@@ -257,13 +322,13 @@ def max_abs_dict(my_dict):
     return res
 
 
-def cohenrance(mat, flag = True):
+def cohenrance(spd, flag = True):
     if flag:
-        D = np.real(np.diag(1.0/np.sqrt(np.diag(mat))))
-        res = reduce(np.dot, [D, mat, D])
+        D = np.real(np.diag(1.0/np.sqrt(np.diag(spd))))
+        res = reduce(np.dot, [D, spd, D])
         res[np.diag_indices(res.shape[0])] = 0
     else:
-        res = mat
+        res = spd
     return res
 
 

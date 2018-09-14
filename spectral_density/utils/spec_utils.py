@@ -20,6 +20,16 @@ def generate_dis_Fourier_coefs(freq, n):
 
 
 
+def get_uni_periodogram(ts, freq_index):
+    num_obs = len(ts)
+    freq = index_to_freq(freq_index, num_obs)
+    df = np.dot(ts, generate_dis_Fourier_coefs(freq, num_obs))
+    periodogram = 1 / (2 * np.pi) * df*np.conj(df)
+    return np.real(periodogram)
+
+
+
+
 def get_periodogram(ts, freq_index):
     num_obs, p = ts.shape
     freq = index_to_freq(freq_index, num_obs)
@@ -28,6 +38,22 @@ def get_periodogram(ts, freq_index):
     return periodogram
 
 
+
+def query_uni_true_spectral(model, coefs, freq, stdev):
+    if model == 'ma':
+        A = coefs[0]
+        #A = A.astype(np.complex)
+        for ell in range(1, len(coefs)):
+            coef = coefs[ell]
+            #coef = coef.astype(np.complex)
+            A += coef * np.exp(-1j * ell*freq)
+        return 1 / (2 * np.pi) * np.dot(A, np.conj(A)) * (stdev ** 2)
+    elif model == 'var':
+        A = 1
+        for ell in range(len(coefs)):
+            A -= coefs[ell] * np.exp(-1j * (ell + 1)*freq)
+        A_inv = 1/A
+        return 1 / (2 * np.pi) * np.dot(A_inv, np.conj(A_inv)) * (stdev ** 2)
 
 
 def query_true_spectral(model, coefs, freq, stdev):

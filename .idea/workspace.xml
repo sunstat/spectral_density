@@ -2,9 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b202f9fd-cae5-4229-bbac-412410418aad" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples_and_tests/test_spec_utils.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spectral_density/generating_weights.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spectral_density/uni_spec_est.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spectral_density/spec_est.py" afterPath="$PROJECT_DIR$/spectral_density/spec_est.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spectral_density/spec_eval.py" afterPath="$PROJECT_DIR$/spectral_density/spec_eval.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spectral_density/utils/mults_utils.py" afterPath="$PROJECT_DIR$/spectral_density/utils/mults_utils.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spectral_density/utils/spec_utils.py" afterPath="$PROJECT_DIR$/spectral_density/utils/spec_utils.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spectral_density/utils/utilities.py" afterPath="$PROJECT_DIR$/spectral_density/utils/utilities.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,23 +20,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/spectral_density/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-              <folding>
-                <element signature="e#17#27#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="spec_utils.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/spectral_density/utils/spec_utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="36" column="24" lean-forward="false" selection-start-line="36" selection-start-column="24" selection-end-line="36" selection-end-column="24" />
+            <state relative-caret-position="790">
+              <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
               </folding>
@@ -39,12 +32,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mults_utils.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="mults_utils.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/spectral_density/utils/mults_utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="782">
-              <caret line="46" column="31" lean-forward="false" selection-start-line="46" selection-start-column="31" selection-end-line="46" selection-end-column="31" />
-              <folding />
+            <state relative-caret-position="237">
+              <caret line="127" column="39" lean-forward="true" selection-start-line="127" selection-start-column="39" selection-end-line="127" selection-end-column="39" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -52,11 +47,33 @@
       <file leaf-file-name="utilities.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/spectral_density/utils/utilities.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2822">
-              <caret line="168" column="7" lean-forward="false" selection-start-line="168" selection-start-column="7" selection-end-line="168" selection-end-column="7" />
+            <state relative-caret-position="4760">
+              <caret line="280" column="0" lean-forward="false" selection-start-line="280" selection-start-column="0" selection-end-line="280" selection-end-column="0" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test_spec_utils.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/examples_and_tests/test_spec_utils.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="16" column="21" lean-forward="false" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/spectral_density/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -73,21 +90,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="numeric.py" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/miniconda3/envs/spectral_density/lib/python3.7/site-packages/numpy/core/numeric.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18683">
-              <caret line="1119" column="0" lean-forward="false" selection-start-line="1119" selection-start-column="0" selection-end-line="1119" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="spec_est.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/spectral_density/spec_est.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1393">
-              <caret line="252" column="18" lean-forward="false" selection-start-line="252" selection-start-column="13" selection-end-line="252" selection-end-column="18" />
+            <state relative-caret-position="221">
+              <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -95,11 +102,35 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="spec_eval.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="uni_spec_est.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/spectral_density/uni_spec_est.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="416">
+              <caret line="123" column="19" lean-forward="false" selection-start-line="123" selection-start-column="19" selection-end-line="123" selection-end-column="19" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="generating_weights.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/spectral_density/generating_weights.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="15" column="45" lean-forward="false" selection-start-line="15" selection-start-column="45" selection-end-line="15" selection-end-column="45" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="spec_eval.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/spectral_density/spec_eval.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="316">
-              <caret line="55" column="21" lean-forward="false" selection-start-line="55" selection-start-column="21" selection-end-line="55" selection-end-column="21" />
+            <state relative-caret-position="1734">
+              <caret line="104" column="15" lean-forward="false" selection-start-line="104" selection-start-column="15" selection-end-line="104" selection-end-column="15" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -131,7 +162,19 @@
       <find>extract_tuple</find>
       <find>average_dict</find>
       <find>keys</find>
+      <find>simu</find>
+      <find>heat_map</find>
+      <find>np.random.seed</find>
+      <find>cohe</find>
+      <find>query_true_spectral</find>
+      <find>_get_neighbors</find>
+      <find>get_periodogram</find>
+      <find>ls_keys</find>
+      <find>deviance</find>
       <find>print</find>
+      <find>span_list</find>
+      <find>self.span_list</find>
+      <find>noise_type</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -151,17 +194,21 @@
         <option value="$PROJECT_DIR$/spectral_density/__init__.py" />
         <option value="$PROJECT_DIR$/spectral_density/debug_doc_test.py" />
         <option value="$PROJECT_DIR$/spectral_density/utils/debug_utils.py" />
-        <option value="$PROJECT_DIR$/spectral_density/utils/mults_utils.py" />
         <option value="$PROJECT_DIR$/spectral_density/utils/debug_util.py" />
-        <option value="$PROJECT_DIR$/spectral_density/utils/spec_utils.py" />
         <option value="$PROJECT_DIR$/spectral_density/debug_util.py" />
-        <option value="$PROJECT_DIR$/spectral_density/utils/utilities.py" />
-        <option value="$PROJECT_DIR$/spectral_density/spec_est.py" />
         <option value="$PROJECT_DIR$/spectral_density/spec_eval.py" />
+        <option value="$PROJECT_DIR$/spectral_density/utils/spec_utils.py" />
+        <option value="$PROJECT_DIR$/spectral_density/examples_and_tests/test_spec_utils.py" />
+        <option value="$PROJECT_DIR$/examples_and_tests/test_spec_utils.py" />
+        <option value="$PROJECT_DIR$/spectral_density/utils/utilities.py" />
+        <option value="$PROJECT_DIR$/spectral_density/generating_weights.py" />
+        <option value="$PROJECT_DIR$/spectral_density/uni_spec_est.py" />
+        <option value="$PROJECT_DIR$/spectral_density/spec_est.py" />
+        <option value="$PROJECT_DIR$/spectral_density/utils/mults_utils.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1680" />
     <option name="height" value="943" />
@@ -192,6 +239,11 @@
             <path>
               <item name="spectral_density" type="b2602c69:ProjectViewProjectNode" />
               <item name="spectral_density" type="462c0819:PsiDirectoryNode" />
+              <item name="examples_and_tests" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spectral_density" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spectral_density" type="462c0819:PsiDirectoryNode" />
               <item name="spectral_density" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -199,6 +251,15 @@
               <item name="spectral_density" type="462c0819:PsiDirectoryNode" />
               <item name="spectral_density" type="462c0819:PsiDirectoryNode" />
               <item name="utils" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spectral_density" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+            <path>
+              <item name="spectral_density" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; Python 3.7.0 (~/miniconda3/envs/spectral_density/bin/python3) &gt;" type="70bed36:NamedLibraryElementNode" />
             </path>
           </expand>
           <select />
@@ -213,6 +274,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/spectral_density" />
       <recent name="$PROJECT_DIR$/spectral_density/utils" />
     </key>
@@ -229,8 +291,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.debug_util">
-    <configuration name="debug_doc_test" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.uni_spec_est">
+    <configuration name="generating_weights" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -242,24 +304,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="spectral_density" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/spectral_density/debug_doc_test.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-    </configuration>
-    <configuration name="debug_util" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/spectral_density/utils" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="spectral_density" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/spectral_density/debug_util.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/spectral_density/generating_weights.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -281,54 +326,71 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <configuration name="spec_utils" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="test_spec_utils (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/spectral_density/utils" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/examples_and_tests" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="spectral_density" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/spectral_density/utils/spec_utils.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/examples_and_tests/test_spec_utils.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <configuration name="utilities" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="test_spec_utils" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/spectral_density/utils" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/spectral_density/examples_and_tests" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="spectral_density" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/spectral_density/utils/utilities.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/spectral_density/examples_and_tests/test_spec_utils.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
+    <configuration name="uni_spec_est" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/spectral_density" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="spectral_density" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/spectral_density/uni_spec_est.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.utilities" />
-      <item index="1" class="java.lang.String" itemvalue="Python.spec_est" />
-      <item index="2" class="java.lang.String" itemvalue="Python.debug_doc_test" />
-      <item index="3" class="java.lang.String" itemvalue="Python.debug_util" />
-      <item index="4" class="java.lang.String" itemvalue="Python.spec_utils" />
+      <item index="0" class="java.lang.String" itemvalue="Python.uni_spec_est" />
+      <item index="1" class="java.lang.String" itemvalue="Python.test_spec_utils" />
+      <item index="2" class="java.lang.String" itemvalue="Python.test_spec_utils (1)" />
+      <item index="3" class="java.lang.String" itemvalue="Python.spec_est" />
+      <item index="4" class="java.lang.String" itemvalue="Python.generating_weights" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.debug_util" />
-        <item index="1" class="java.lang.String" itemvalue="Python.spec_utils" />
+        <item index="0" class="java.lang.String" itemvalue="Python.uni_spec_est" />
+        <item index="1" class="java.lang.String" itemvalue="Python.generating_weights" />
         <item index="2" class="java.lang.String" itemvalue="Python.spec_est" />
-        <item index="3" class="java.lang.String" itemvalue="Python.utilities" />
-        <item index="4" class="java.lang.String" itemvalue="Python.debug_doc_test" />
+        <item index="3" class="java.lang.String" itemvalue="Python.test_spec_utils (1)" />
+        <item index="4" class="java.lang.String" itemvalue="Python.test_spec_utils" />
       </list>
     </recent_temporary>
   </component>
@@ -354,7 +416,8 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1680" height="943" extended-state="1" />
+    <frame x="0" y="23" width="1680" height="943" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -386,34 +449,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/spectral_density/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding>
-            <element signature="e#17#27#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spectral_density/utils/mults_utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spectral_density/utils/utilities.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/spectral_density/debug_util.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1411">
@@ -456,9 +491,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#17#27#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -466,9 +499,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#17#27#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -486,7 +517,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1241">
           <caret line="73" column="27" lean-forward="false" selection-start-line="73" selection-start-column="27" selection-end-line="73" selection-end-column="27" />
-          <folding />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -534,9 +567,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding>
-            <element signature="e#17#27#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -584,7 +615,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
           <caret line="29" column="7" lean-forward="false" selection-start-line="29" selection-start-column="7" selection-end-line="29" selection-end-column="7" />
-          <folding />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -592,9 +625,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding>
-            <element signature="e#17#27#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -602,7 +633,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1411">
           <caret line="83" column="7" lean-forward="false" selection-start-line="83" selection-start-column="7" selection-end-line="83" selection-end-column="7" />
-          <folding />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -650,9 +683,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding>
-            <element signature="e#17#27#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -670,7 +701,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1411">
           <caret line="83" column="7" lean-forward="false" selection-start-line="83" selection-start-column="7" selection-end-line="83" selection-end-column="7" />
-          <folding />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -728,7 +761,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="24" column="12" lean-forward="true" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
-          <folding />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -736,7 +771,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="697">
           <caret line="41" column="19" lean-forward="false" selection-start-line="41" selection-start-column="19" selection-end-line="41" selection-end-column="19" />
-          <folding />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -759,19 +796,35 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/simulation/generate_weights.py" />
+    <entry file="file://$PROJECT_DIR$/spectral_density/debug_doc_test.py" />
+    <entry file="file://$PROJECT_DIR$/spectral_density/utils/debug_utils.py" />
+    <entry file="file://$PROJECT_DIR$/../../gupiao_trend.py" />
+    <entry file="file://$USER_HOME$/miniconda3/envs/spectral_density/lib/python3.7/site-packages/numpy/core/numeric.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18683">
+          <caret line="1119" column="0" lean-forward="false" selection-start-line="1119" selection-start-column="0" selection-end-line="1119" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/spectral_density/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
+        <state relative-caret-position="221">
           <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spectral_density/utils/utilities.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4760">
+          <caret line="280" column="0" lean-forward="false" selection-start-line="280" selection-start-column="0" selection-end-line="280" selection-end-column="0" />
           <folding>
-            <element signature="e#17#27#0" expanded="true" />
+            <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spectral_density/debug_doc_test.py" />
-    <entry file="file://$PROJECT_DIR$/spectral_density/utils/debug_utils.py" />
-    <entry file="file://$PROJECT_DIR$/../../gupiao_trend.py" />
     <entry file="file://$PROJECT_DIR$/spectral_density/debug_util.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1411">
@@ -782,26 +835,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/miniconda3/envs/spectral_density/lib/python3.7/site-packages/numpy/core/numeric.py">
+    <entry file="file://$PROJECT_DIR$/spectral_density/spec_eval.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18683">
-          <caret line="1119" column="0" lean-forward="false" selection-start-line="1119" selection-start-column="0" selection-end-line="1119" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="1734">
+          <caret line="104" column="15" lean-forward="false" selection-start-line="104" selection-start-column="15" selection-end-line="104" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spectral_density/utils/mults_utils.py">
+    <entry file="file://$PROJECT_DIR$/spectral_density/generating_weights.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="46" column="31" lean-forward="false" selection-start-line="46" selection-start-column="31" selection-end-line="46" selection-end-column="31" />
-          <folding />
+        <state relative-caret-position="221">
+          <caret line="15" column="45" lean-forward="false" selection-start-line="15" selection-start-column="45" selection-end-line="15" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spectral_density/utils/utilities.py">
+    <entry file="file://$PROJECT_DIR$/examples_and_tests/test_spec_utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2822">
-          <caret line="168" column="7" lean-forward="false" selection-start-line="168" selection-start-column="7" selection-end-line="168" selection-end-column="7" />
+        <state relative-caret-position="255">
+          <caret line="16" column="21" lean-forward="false" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spectral_density/uni_spec_est.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="123" column="19" lean-forward="false" selection-start-line="123" selection-start-column="19" selection-end-line="123" selection-end-column="19" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
@@ -810,8 +877,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/spectral_density/utils/spec_utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="36" column="24" lean-forward="false" selection-start-line="36" selection-start-column="24" selection-end-line="36" selection-end-column="24" />
+        <state relative-caret-position="790">
+          <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
           </folding>
@@ -820,18 +887,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/spectral_density/spec_est.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1393">
-          <caret line="252" column="18" lean-forward="false" selection-start-line="252" selection-start-column="13" selection-end-line="252" selection-end-column="18" />
+        <state relative-caret-position="221">
+          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spectral_density/spec_eval.py">
+    <entry file="file://$PROJECT_DIR$/spectral_density/utils/mults_utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="55" column="21" lean-forward="false" selection-start-line="55" selection-start-column="21" selection-end-line="55" selection-end-column="21" />
+        <state relative-caret-position="237">
+          <caret line="127" column="39" lean-forward="true" selection-start-line="127" selection-start-column="39" selection-end-line="127" selection-end-column="39" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>

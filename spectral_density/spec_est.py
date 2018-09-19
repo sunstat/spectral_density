@@ -10,6 +10,14 @@ from utils.spec_utils import *
 from spectral_density.spec_eval import SpecEval
 
 
+def spec_2_norm(dict_spec):
+    res = {}
+    for freq_ind in dict_spec.keys():
+        res[freq_ind] = HS_norm(dict_spec[freq_ind])**2
+    return res
+
+
+
 class SpecEst(object):
 
     def _get_neighbors(self):
@@ -199,30 +207,45 @@ class SpecEst(object):
     query section
     '''
 
-    def query_smoothing_estimator(self, freq_index):
 
+
+    def query_smoothing_estimator(self, freq_index=None):
+        if freq_index is None:
+            return spec_2_norm(self.smoothing_estimator)
         return self.smoothing_estimator[freq_index]
 
-    def query_shrinkage_estimator(self, freq_index):
+    def query_shrinkage_estimator(self, freq_index=None):
+        if freq_index is None:
+            return spec_2_norm(self.shrinkage_estimator)
         return self.shrinkage_estimator[freq_index]
 
-    def query_thresholding_estimator(self, freq_index):
+    def query_thresholding_estimator(self, freq_index=None):
+        if freq_index is None:
+            return spec_2_norm(self.thresholding_estimator)
         return self.thresholding_estimator[freq_index]
 
-    def query_periodogram(self, freq_index):
+    def query_periodogram(self, freq_index=None):
+        if freq_index is None:
+            return spec_2_norm(self.periodograms)
         return self.periodograms[freq_index]
 
-    def query_true_spectral(self, freq_index):
+    def query_true_spectral(self, freq_index=None):
+        if freq_index is None:
+            return spec_2_norm(self.true_spectral)
         return self.true_spectral[freq_index]
 
 
     def query_neighbors(self, freq_index):
         return self.neighbors[freq_index]
 
-    def query_soft_threshold_estimator(self, freq_index):
+    def query_soft_threshold_estimator(self, freq_index=None):
+        if freq_index is None:
+            return spec_2_norm(self.soft_threshold_estimator)
         return self.soft_threshold_estimator[freq_index]
 
-    def query_adaptive_lasso_estimator(self, freq_index):
+    def query_adaptive_lasso_estimator(self, freq_index=None):
+        if freq_index is None:
+            return spec_2_norm(self.adaptive_lasso_estimator)
         return self.adaptive_lasso_estimator[freq_index]
 
     def return_all_periodograms(self):
@@ -257,6 +280,7 @@ class SpecEst(object):
 
 
 if __name__ == "__main__":
+
     stdev = 0.1
     num_obs = 800
     span = 20

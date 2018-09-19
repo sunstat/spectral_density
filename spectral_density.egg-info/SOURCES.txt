@@ -1,7 +1,9 @@
 spectral_density/__init__.py
 spectral_density/debug_util.py
+spectral_density/generating_weights.py
 spectral_density/spec_est.py
 spectral_density/spec_eval.py
+spectral_density/uni_spec_est.py
 spectral_density.egg-info/PKG-INFO
 spectral_density.egg-info/SOURCES.txt
 spectral_density.egg-info/dependency_links.txt
